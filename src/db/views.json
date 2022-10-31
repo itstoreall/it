@@ -1,0 +1,12 @@
+[
+  {
+    "v_id": "v1",
+    "title": "Home",
+    "path": "/"
+  },
+  {
+    "v_id": "v2",
+    "title": "Blockchain",
+    "path": "/blockchain"
+  }
+]
