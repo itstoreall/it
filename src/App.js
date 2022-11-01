@@ -1,26 +1,21 @@
-import { useState } from 'react';
-import logo from './img/logo.svg';
-import './App.css';
-import Blockchain from './components/blockchain/Blockchain';
+import AppContext from './context/AppContext';
+import { AppWrap } from './App.style';
+import { BrowserRouter } from 'react-router-dom';
+import AppRoutes from './Routes/AppRoutes';
+import Footer from './components/Footer';
+import views from './db/views.json';
 
-function App() {
-  const [blockchain, setBlockchain] = useState(false);
-
+const App = () => {
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='React' />
-        <p>it.storeall.com.ua in progress...</p>
-        <span
-          style={{ color: '#282c34', cursor: 'pointer' }}
-          onClick={() => setBlockchain(true)}
-        >
-          blockchain
-        </span>
-        {blockchain && <Blockchain />}
-      </header>
-    </div>
+    <AppContext.Provider value={{ views }}>
+      <AppWrap>
+        <BrowserRouter>
+          <AppRoutes />
+          <Footer />
+        </BrowserRouter>
+      </AppWrap>
+    </AppContext.Provider>
   );
-}
+};
 
 export default App;
