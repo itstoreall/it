@@ -2,17 +2,21 @@
 // import Web3 from 'web3';
 // import Connect from './Connect';
 // import { provider } from 'web3-core';
+import { BlockchainSection } from './Blockchain.style.js';
 
 // const getLibrary = provider => {
 //   return new Web3(provider);
 // };
 
-const Blockchain = () => {
+const Blockchain = ({ view }) => {
   console.log('Blockchain');
 
   return (
+    <BlockchainSection>
+      <h1>{view.title}</h1>
+      <div>Blockchain</div>
+    </BlockchainSection>
     // <Web3ReactProvider getLibrary={getLibrary}>
-    <div>Blockchain</div>
     // <Connect />
     // </Web3ReactProvider>
   );

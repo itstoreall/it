@@ -10,7 +10,7 @@ export const Section404 = styled.div`
   color: grey;
 
   > span {
-    font-size: 180px;
+    font-size: 160px;
     color: palevioletred;
   }
 `;

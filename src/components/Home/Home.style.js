@@ -6,7 +6,7 @@ export const HomeSection = styled.div`
   justify-content: center;
   align-items: center;
   min-height: 100%;
-  font-size: 14px;
+  font-size: 18px;
   color: grey;
 
   > img {

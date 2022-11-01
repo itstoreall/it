@@ -1,29 +1,20 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import AppContext from './context/AppContext';
 import { AppWrap } from './App.style';
+import { BrowserRouter } from 'react-router-dom';
+import AppRoutes from './Routes/AppRoutes';
 import Footer from './components/Footer';
-import viewHandler from './views/viewHandler';
 import views from './db/views.json';
-import HomeView from './views/HomeView';
 
 const App = () => {
   return (
-    <AppWrap>
-      <BrowserRouter>
-        <Routes>
-          {views.map(view => {
-            return (
-              <Route
-                key={view.title}
-                path={view.path}
-                element={viewHandler(view.title)}
-              />
-            );
-          })}
-          <Route path='*' element={<Navigate to='/not-found' />} />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
-    </AppWrap>
+    <AppContext.Provider value={{ views }}>
+      <AppWrap>
+        <BrowserRouter>
+          <AppRoutes />
+          <Footer />
+        </BrowserRouter>
+      </AppWrap>
+    </AppContext.Provider>
   );
 };
 
