@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import AppContext from '../context/AppContext';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import viewHandler from './routeHandler';
+import componentHandler from './componentHandler';
 
 const AppRoutes = () => {
   const { views } = useContext(AppContext);
@@ -13,11 +13,11 @@ const AppRoutes = () => {
           <Route
             key={view.title}
             path={view.path}
-            element={viewHandler(view.title, view)}
+            element={componentHandler(view.title, view)}
           />
         );
       })}
-      <Route path='*' element={<Navigate to='/not-found' />} />
+      <Route path='/*' element={<Navigate to='/not-found' />} />
     </Routes>
   );
 };
