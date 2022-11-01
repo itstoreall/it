@@ -19,8 +19,7 @@ const App = () => {
               />
             );
           })}
-          {/* <Route element={<Navigate replace to='/' />} /> */}
-          <Route path='*' element={<Navigate to='/home' />} />
+          <Route path='*' element={<Navigate to='/not-found' />} />
         </Routes>
         <Footer />
       </BrowserRouter>

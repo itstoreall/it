@@ -1,11 +1,12 @@
+import { HomeSection } from './Home.style';
 import logo from '../../img/logo.svg';
 
 const Home = () => {
   return (
-    <header className='App-header'>
-      <img src={logo} className='App-logo' alt='React' />
+    <HomeSection>
+      <img src={logo} alt='storeall' />
       <p>it.storeall.com.ua in progress...</p>
-    </header>
+    </HomeSection>
   );
 };
 

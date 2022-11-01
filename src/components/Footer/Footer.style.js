@@ -11,21 +11,39 @@ export const FooterWrap = styled.footer`
   // background-color: yellowgreen;
 `;
 
-export const LinkList = styled.footer`
+export const HomeLinkWrap = styled.div`
+  display: flex;
+
+  > a {
+    > svg {
+      &:hover {
+        fill: darkgrey;
+      }
+    }
+  }
+`;
+
+export const LinkList = styled.ul`
   display: flex;
 `;
 
-export const LinkItem = styled.footer`
-  margin-right: 10px;
-
-  &:last-child {
-    margin-right: 0;
-  }
+export const LinkItem = styled.li`
+  // background-color: yellowgreen;
 
   > a {
+    display: block;
+    padding-left: 10px;
     font-size: 14px;
     color: white;
     text-decoration: none;
-    color: white;
+    color: grey;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      color: darkgrey;
+    }
   }
 `;

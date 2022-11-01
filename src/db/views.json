@@ -1,12 +1,20 @@
 [
   {
+    "v_id": "v0",
+    "title": "404",
+    "path": "/not-found",
+    "link": false
+  },
+  {
     "v_id": "v1",
     "title": "Home",
-    "path": "/home"
+    "path": "/",
+    "link": false
   },
   {
     "v_id": "v2",
     "title": "Blockchain",
-    "path": "/blockchain"
+    "path": "/blockchain",
+    "link": true
   }
 ]
