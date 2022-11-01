@@ -3,8 +3,11 @@ import HomeView from '../views/HomeView';
 import BlockchainView from '../views/BlockchainView';
 import View from '../views/View'; // Copy this
 
-const viewHandler = (element, view) => {
+const componentHandler = (element, view) => {
   switch (element) {
+    case '404':
+      return <Page404 view={view} />;
+
     case 'Home':
       return <HomeView view={view} />;
 
@@ -19,4 +22,4 @@ const viewHandler = (element, view) => {
   }
 };
 
-export default viewHandler;
+export default componentHandler;
