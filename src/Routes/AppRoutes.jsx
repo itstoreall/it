@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import AppContext from '../context/AppContext';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import componentHandler from './componentHandler';
+import Page404 from '../views/Page404';
 
 const AppRoutes = () => {
   const { views } = useContext(AppContext);
@@ -17,7 +18,7 @@ const AppRoutes = () => {
           />
         );
       })}
-      <Route path='/*' element={<Navigate to='/not-found' />} />
+      <Route path='*' element={<Page404 />} />
     </Routes>
   );
 };
