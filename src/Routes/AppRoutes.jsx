@@ -1,11 +1,13 @@
 import { useContext } from 'react';
 import AppContext from '../context/AppContext';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import componentHandler from './componentHandler';
 import Page404 from '../views/Page404';
 
 const AppRoutes = () => {
-  const { views } = useContext(AppContext);
+  const { views, pathname } = useContext(AppContext);
+
+  console.log('pathname:', pathname);
 
   return (
     <Routes>
