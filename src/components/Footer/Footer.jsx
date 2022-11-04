@@ -1,5 +1,5 @@
 import { FooterWrap, HomeLinkWrap, LinkList, LinkItem } from './Footer.style';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useMatch } from 'react-router-dom';
 import views from '../../db/views.json';
 import sprite from '../../svg/sprite.svg';
 
@@ -7,6 +7,15 @@ const Footer = () => {
   let activeStyle = {
     color: 'palevioletred',
   };
+
+  function SomeComp() {
+    const match = useMatch('/blockchain');
+    match && console.log(1, match);
+    console.log(2, match);
+    // return <li className={Boolean(match) ? 'active' : ''} />;
+  }
+
+  // SomeComp();
 
   return (
     <FooterWrap>
