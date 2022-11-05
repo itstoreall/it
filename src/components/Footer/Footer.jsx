@@ -1,32 +1,35 @@
 import { FooterWrap, HomeLinkWrap, LinkList, LinkItem } from './Footer.style';
 import { NavLink, useMatch } from 'react-router-dom';
 import views from '../../db/views.json';
-import sprite from '../../svg/sprite.svg';
+import SVGIcon from '../../svg/setSVG';
 
 const Footer = () => {
   let activeStyle = {
     color: 'palevioletred',
   };
 
-  function SomeComp() {
-    const match = useMatch('/blockchain');
-    match && console.log(1, match);
-    console.log(2, match);
-    // return <li className={Boolean(match) ? 'active' : ''} />;
-  }
+  // function SomeComp() {
+  //   const match = useMatch('/blockchain');
+  //   match && console.log(1, match);
+  //   console.log(2, match);
+  //   // return <li className={Boolean(match) ? 'active' : ''} />;
+  // }
 
   // SomeComp();
 
   return (
     <FooterWrap>
       <LinkList>
-        {/* <LinkItem key={'homeq'}>
+        <LinkItem key={'homeq'}>
           <NavLink to={'/'}>
-            <svg>
-              <use href={sprite + '#icon-home'}></use>
-            </svg>
+            {SVGIcon('icon-home', {
+              width: 13,
+              height: 13,
+              fill: 'grey',
+              hover: 'darkgrey',
+            })}
           </NavLink>
-        </LinkItem> */}
+        </LinkItem>
         {views.map(link => {
           return (
             <>

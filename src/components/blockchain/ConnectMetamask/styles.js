@@ -8,24 +8,12 @@ export const WalletAddressContainer = styled.div`
 `;
 
 export const WalletAddressContent = styled.div`
-  // height: 100px;
-  margin-bottom: 10px;
+  height: 100px;
+  margin-bottom: 20px;
   // background-color: teal;
 
   // font-size: 14px;
   // font-weight: 600;
-`;
-
-export const CopyIcon = styled(Copy)`
-  width: 14px;
-  height: 14px;
-  cursor: pointer;
-`;
-
-export const CopySuccessIcon = styled(CopySuccess)`
-  width: 14px;
-  height: 14px;
-  cursor: pointer;
 `;
 
 export const BurgerIconContainer = styled.div`
