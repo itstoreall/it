@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button } from '../Blockchain.style';
+import { DefaultButton } from '../Blockchain.style';
 
 export const Container = styled.div``;
 
@@ -8,4 +8,4 @@ export const Wallet = styled.span`
   margin-bottom: 10px;
 `;
 
-export const ConnetcMetamaskButton = styled(Button)``;
+export const ConnetcMetamaskButton = styled(DefaultButton)``;

@@ -37,15 +37,5 @@ export const LinkItem = styled.li`
     &:hover {
       color: darkgrey;
     }
-
-    > svg {
-      width: 13px;
-      height: 13px;
-      fill: grey;
-
-      &:hover {
-        fill: darkgrey;
-      }
-    }
   }
 `;

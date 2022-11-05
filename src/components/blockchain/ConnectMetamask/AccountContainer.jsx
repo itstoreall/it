@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useWeb3React } from '@web3-react/core';
+import SVGIcon from '../../../svg/setSVG';
 import {
   WalletAddressContainer,
   WalletAddressContent,
   // WalletIcon,
-  CopySuccessIcon,
-  CopyIcon,
 } from './styles';
+import { StyleButton } from '../Blockchain.style';
 import stringTrim from './utils/stringTrim';
 import useCopyToClipboard from './hooks/useCopy';
 
@@ -37,13 +37,27 @@ const AccountContainer = ({ isActive }) => {
               <>
                 {stringTrim(account, 12)}
                 {isCopySuccess ? (
-                  <CopySuccessIcon />
+                  // <CopySuccessIcon />
+                  <StyleButton>
+                    {SVGIcon('icon-check', {
+                      width: 15,
+                      height: 15,
+                      fill: 'palevioletred',
+                    })}
+                  </StyleButton>
                 ) : (
-                  <CopyIcon onClick={() => copy(account)} />
+                  <StyleButton onClick={() => copy(account)}>
+                    {SVGIcon('icon-copy', {
+                      width: 15,
+                      height: 15,
+                      fill: 'grey',
+                      hover: 'darkgrey',
+                    })}
+                  </StyleButton>
                 )}
               </>
             ) : (
-              'not connected'
+              'Wallet is not connected'
             )}
           </WalletAddressContent>
         </>
