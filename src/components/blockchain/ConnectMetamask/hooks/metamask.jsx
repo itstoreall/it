@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {
   useMemo,
   useEffect,
@@ -6,25 +7,23 @@ import {
   useContext,
   useState,
 } from 'react';
-import { injected } from '../wallet/connectors';
+import { injected } from '../metamask/wallet/connectors';
 import { useWeb3React } from '@web3-react/core';
+
+const { log } = console;
 
 export const MetaMaskContext = createContext(null);
 
 export const MetaMaskProvider = ({ children }) => {
-  // eslint-disable-next-line no-unused-vars
-  const { activate, account, library, connector, active, deactivate } =
-    useWeb3React();
+  const { activate, account, active, deactivate } = useWeb3React();
 
   const [isActive, setIsActive] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Init Loading
   useEffect(() => {
     connect().then(val => {
       setIsLoading(false);
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleIsActive = useCallback(() => {
@@ -35,23 +34,21 @@ export const MetaMaskProvider = ({ children }) => {
     handleIsActive();
   }, [handleIsActive]);
 
-  // Connect to MetaMask wallet
   const connect = async () => {
-    console.log('Connecting to MetaMask Wallet');
+    log('Connect MetaMask');
     try {
       await activate(injected);
-    } catch (error) {
-      console.log('Error on connecting: ', error);
+    } catch (e) {
+      log('Error on connect:', e);
     }
   };
 
-  // Disconnect from Metamask wallet
   const disconnect = async () => {
-    console.log('Deactivating...');
+    log('Disconnect MetaMask');
     try {
-      deactivate(); // await
-    } catch (error) {
-      console.log('Error on disconnecting: ', error);
+      await deactivate();
+    } catch (e) {
+      log('Error on disconnect:', e);
     }
   };
 
@@ -63,7 +60,6 @@ export const MetaMaskProvider = ({ children }) => {
       connect,
       disconnect,
     }),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [isActive, isLoading]
   );
 
@@ -78,9 +74,7 @@ export default function useMetaMask() {
   const context = useContext(MetaMaskContext);
 
   if (context === undefined) {
-    throw new Error(
-      'useMetaMask hook must be used with a MetaMaskProvider component'
-    );
+    throw new Error('no MetaMaskProvider');
   }
 
   return context;

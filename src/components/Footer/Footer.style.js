@@ -3,24 +3,11 @@ import styled from 'styled-components';
 export const FooterWrap = styled.footer`
   position: fixed;
   bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
   min-height: 40px;
-  // background-color: yellowgreen;
 `;
 
 export const HomeLinkWrap = styled.div`
   display: flex;
-
-  > a {
-    > svg {
-      &:hover {
-        fill: darkgrey;
-      }
-    }
-  }
 `;
 
 export const LinkList = styled.ul`
@@ -28,11 +15,16 @@ export const LinkList = styled.ul`
 `;
 
 export const LinkItem = styled.li`
-  // background-color: yellowgreen;
+  display: flex;
+  padding-left: 10px;
+
+  &:first-child {
+    padding-left: 0;
+  }
 
   > a {
-    display: block;
-    padding-left: 10px;
+    display: flex;
+    align-items: center;
     font-size: 14px;
     color: white;
     text-decoration: none;
@@ -44,6 +36,16 @@ export const LinkItem = styled.li`
 
     &:hover {
       color: darkgrey;
+    }
+
+    > svg {
+      width: 13px;
+      height: 13px;
+      fill: grey;
+
+      &:hover {
+        fill: darkgrey;
+      }
     }
   }
 `;
