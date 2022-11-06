@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useWeb3React } from '@web3-react/core';
-import getBalance from './utils/getBalance';
+import getBalance from '../utils/getBalance';
 import setSVG from '../../../svg/setSVG';
 import {
   WalletBalanceContainer,
@@ -8,7 +8,7 @@ import {
   WalletAddressContent,
 } from './styles';
 import { StyleButton } from '../Blockchain.style';
-import stringTrim from './utils/stringTrim';
+import stringTrim from '../utils/stringTrim';
 import useCopyToClipboard from './hooks/useCopy';
 
 const AccountContainer = ({ isActive }) => {
@@ -17,9 +17,7 @@ const AccountContainer = ({ isActive }) => {
   const [isCopySuccess, copy] = useCopyToClipboard();
 
   useEffect(() => {
-    console.log('isActive', isActive);
     if (account) {
-      console.log('account', account);
       getBalance(library, account).then(res =>
         setBalance(+(+res / 1e18).toFixed(2))
       );

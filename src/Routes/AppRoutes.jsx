@@ -5,10 +5,7 @@ import componentHandler from './componentHandler';
 import Page404 from '../views/Page404';
 
 const AppRoutes = () => {
-  const { views, pathname } = useContext(AppContext);
-
-  console.log('');
-  console.log('pathname:', pathname);
+  const { views } = useContext(AppContext);
 
   return (
     <Routes>
