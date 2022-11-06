@@ -1,6 +1,6 @@
 import { Container, ConnetcMetamaskButton } from './ConnectMetamask.style';
 import AccountContainer from './AccountContainer';
-import useMetaMask from './hooks/metamask';
+import useMetaMask from './hooks/useMetaMask';
 
 const ConnectMetamask = () => {
   const { connect, disconnect, isActive } = useMetaMask();
@@ -10,11 +10,11 @@ const ConnectMetamask = () => {
       <AccountContainer isActive={isActive} />
       <div>
         {isActive ? (
-          <ConnetcMetamaskButton onClick={disconnect} variant='danger'>
+          <ConnetcMetamaskButton onClick={disconnect}>
             Disconnect MetaMask
           </ConnetcMetamaskButton>
         ) : (
-          <ConnetcMetamaskButton onClick={connect} variant='secondary'>
+          <ConnetcMetamaskButton onClick={connect}>
             Connect MetaMask
           </ConnetcMetamaskButton>
         )}

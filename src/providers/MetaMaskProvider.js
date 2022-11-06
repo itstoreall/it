@@ -1,20 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import {
-  useMemo,
-  useEffect,
-  useCallback,
-  createContext,
-  useContext,
-  useState,
-} from 'react';
-import { injected } from '../metamask/wallet/connectors';
+import { useMemo, useEffect, useCallback, useState } from 'react';
 import { useWeb3React } from '@web3-react/core';
+import MetaMaskContext from '../context/MetaMaskContext';
+import injected from '../components/Blockchain/ConnectMetamask/metamask/wallet/connectors';
 
 const { log } = console;
 
-export const MetaMaskContext = createContext(null);
-
-export const MetaMaskProvider = ({ children }) => {
+const MetaMaskProvider = ({ children }) => {
   const { activate, account, active, deactivate } = useWeb3React();
 
   const [isActive, setIsActive] = useState(false);
@@ -35,6 +27,7 @@ export const MetaMaskProvider = ({ children }) => {
   }, [handleIsActive]);
 
   const connect = async () => {
+    log('');
     log('Connect MetaMask');
     try {
       await activate(injected);
@@ -44,6 +37,7 @@ export const MetaMaskProvider = ({ children }) => {
   };
 
   const disconnect = async () => {
+    log('');
     log('Disconnect MetaMask');
     try {
       await deactivate();
@@ -70,12 +64,4 @@ export const MetaMaskProvider = ({ children }) => {
   );
 };
 
-export default function useMetaMask() {
-  const context = useContext(MetaMaskContext);
-
-  if (context === undefined) {
-    throw new Error('no MetaMaskProvider');
-  }
-
-  return context;
-}
+export default MetaMaskProvider;
