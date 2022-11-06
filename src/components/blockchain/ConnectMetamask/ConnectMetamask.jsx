@@ -1,13 +1,9 @@
-import {
-  Container,
-  Wallet,
-  ConnetcMetamaskButton,
-} from './ConnectMetamask.style';
+import { Container, ConnetcMetamaskButton } from './ConnectMetamask.style';
 import AccountContainer from './AccountContainer';
 import useMetaMask from './hooks/metamask';
 
 const ConnectMetamask = () => {
-  const { connect, disconnect, isActive, account } = useMetaMask();
+  const { connect, disconnect, isActive } = useMetaMask();
 
   return (
     <Container>

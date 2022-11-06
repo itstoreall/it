@@ -11,6 +11,7 @@ export const useCopyToClipboard = () => {
       setTimeout(function () {
         setIsCopySuccess(false);
       }, 2500);
+
       return;
     } else if (
       document.queryCommandSupported &&
@@ -27,6 +28,7 @@ export const useCopyToClipboard = () => {
         setTimeout(function () {
           setIsCopySuccess(false);
         }, 2500);
+
         return;
       } catch (ex) {
         console.warn('Copy to clipboard failed.', ex);

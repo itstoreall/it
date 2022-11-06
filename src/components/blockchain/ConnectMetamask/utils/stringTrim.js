@@ -8,6 +8,7 @@ const stringTrim = (string, maxLength) => {
   const toRemove = string.length - maxLength;
   const leftStrip = Math.ceil(toRemove / 2);
   const rightStrip = toRemove - leftStrip;
+
   return `${string.substring(0, midpoint - leftStrip)}...${string.substring(
     midpoint + rightStrip
   )}`;

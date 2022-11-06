@@ -16,7 +16,7 @@ export const LinkList = styled.ul`
 
 export const LinkItem = styled.li`
   display: flex;
-  padding-left: 10px;
+  padding-left: ${props => props.paddingLeft}px;
 
   &:first-child {
     padding-left: 0;
