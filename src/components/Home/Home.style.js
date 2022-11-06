@@ -10,7 +10,6 @@ export const HomeSection = styled.div`
   font-size: 18px;
   text-align: center;
   color: grey;
-  // background-color: pink;
 
   > img {
     pointer-events: none;

@@ -9,7 +9,7 @@
     "v_id": "v1",
     "title": "Home",
     "path": "/",
-    "link": false
+    "link": true
   },
   {
     "v_id": "v2",
