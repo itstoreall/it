@@ -9,14 +9,20 @@ import {
 } from './styles';
 import { StyleButton } from '../Blockchain.style';
 import stringTrim from '../utils/stringTrim';
-import useCopyToClipboard from './hooks/useCopy';
+import getChainNameByCainId from '../utils/getChainNameByCainId';
+import useCopyToClipboard from '../../../hooks/useCopy';
 
 const AccountContainer = ({ isActive }) => {
   const { chainId, account, library } = useWeb3React();
   const [balance, setBalance] = useState(0);
+  const [symbol, setSymbol] = useState('');
   const [isCopySuccess, copy] = useCopyToClipboard();
 
   useEffect(() => {
+    if (chainId) {
+      setSymbol(getChainNameByCainId(chainId));
+    }
+
     if (account) {
       getBalance(library, account).then(res =>
         setBalance(+(+res / 1e18).toFixed(2))
@@ -27,7 +33,9 @@ const AccountContainer = ({ isActive }) => {
   return (
     <>
       <WalletAddressContainer>
-        <WalletBalanceContainer>{balance} ETH</WalletBalanceContainer>
+        <WalletBalanceContainer>
+          {balance} {symbol}
+        </WalletBalanceContainer>
         <>
           <WalletAddressContent>
             {isActive && (

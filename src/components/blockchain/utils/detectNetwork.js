@@ -1,4 +1,4 @@
-import allowSwitchNetwork from './allowSwitchNetwork';
+// import allowSwitchNetwork from './allowSwitchNetwork';
 
 const detectNetwork = async () => {
   console.log('detectNetwork');
@@ -12,7 +12,7 @@ const detectNetwork = async () => {
   if (+eth.networkVersion !== chainId) {
     console.log('detectNetwork -> chainId:', +eth.networkVersion);
 
-    allowSwitchNetwork();
+    // allowSwitchNetwork();
   }
 };
 

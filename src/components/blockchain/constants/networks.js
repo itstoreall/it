@@ -1,13 +1,29 @@
+/* eslint-disable no-template-curly-in-string */
 const networks = {
-  ropsten: {
-    chainId: `0x${Number(3).toString(16)}`,
-    chainName: 'Ropsten',
+  eth: {
+    chainId: `0x${Number(1).toString(16)}`,
+    chainName: 'Ethereum',
     nativeCurrency: {
-      name: 'Ropsten Ether',
+      name: 'Ether',
       symbol: 'ETH',
       decimals: 18,
     },
-    rpcUrls: ['https://ropsten.infura.io/v3/'],
+    rpcUrls: [
+      'https://mainnet.infura.io/v3/${INFURA_API_KEY}',
+      'wss://mainnet.infura.io/ws/v3/${INFURA_API_KEY}',
+      'https://api.mycryptoapi.com/eth',
+      'https://cloudflare-eth.com',
+    ],
+  },
+  goerli: {
+    chainId: `0x${Number(5).toString(16)}`,
+    chainName: 'Goerli',
+    nativeCurrency: {
+      name: 'GoerliETH',
+      symbol: 'GoerliETH',
+      decimals: 18,
+    },
+    rpcUrls: ['https://ethereum-goerli-rpc.allthatnode.com'],
   },
   polygon: {
     chainId: `0x${Number(137).toString(16)}`,
