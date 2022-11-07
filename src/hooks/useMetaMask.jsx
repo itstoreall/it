@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import MetaMaskContext from '../../../../context/MetaMaskContext';
+import MetaMaskContext from '../context/MetaMaskContext';
 
 const useMetaMask = () => {
   console.log('useMetaMask');
