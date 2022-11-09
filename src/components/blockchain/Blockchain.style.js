@@ -19,9 +19,10 @@ export const StyleButton = styled.button`
 
 export const DefaultButton = styled.button`
   padding 3px 6px;
+  font-weight: 600;
   color: palevioletred;
   background-color: transparent;
-  border: 1px solid palevioletred;
+  border: 2px solid palevioletred;
   border-radius: 4px;
   cursor: pointer;
 `;
