@@ -2,7 +2,7 @@
 import { useMemo, useEffect, useCallback, useState } from 'react';
 import { useWeb3React } from '@web3-react/core';
 import MetaMaskContext from '../context/MetaMaskContext';
-import injected from '../components/Blockchain/ConnectMetamask/metamask/wallet/connectors';
+import injected from '../components/Blockchain/wallet/connectors';
 
 const { log } = console;
 
