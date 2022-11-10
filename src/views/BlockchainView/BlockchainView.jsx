@@ -5,7 +5,9 @@ import { ViewWrap } from '../View.style';
 import Blockchain from '../../components/Blockchain/Blockchain';
 
 function getLibrary(provider, connector) {
-  return new Web3(provider);
+  const library = new Web3(provider);
+  library.pollingInterval = 12000;
+  return library;
 }
 
 const BlockchainView = ({ view }) => {

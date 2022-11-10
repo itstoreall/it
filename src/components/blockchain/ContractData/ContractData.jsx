@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useWeb3React } from '@web3-react/core';
 import { Section, SectionButton } from './ContractData.style';
+import useIsNetwork from '../../../hooks/useIsNetwork';
 import useContract from '../../../hooks/useContract.jsx';
 import { mintNFT } from '../methods/write';
 
@@ -9,10 +10,12 @@ const ContractData = () => {
   const { account } = useWeb3React();
   const contract = useContract();
 
+  const isNetwork = useIsNetwork();
+
   const mint = async () => {
     setMintedNFT(null);
 
-    contract &&
+    if (contract)
       mintNFT(contract, account, '888', '25-05-2023', 'basic').then(data => {
         data && typeof data !== 'string'
           ? setMintedNFT({
@@ -24,13 +27,14 @@ const ContractData = () => {
   };
 
   return (
-    <Section
-      style={{
-        padding: '30px',
-        background: 'linear-gradient(269.26deg,#c24fb6 6.59%,#3f51b8 94.04%)',
-      }}
-    >
-      <SectionButton onClick={() => mint()}>Mint NFT</SectionButton>
+    <Section>
+      <SectionButton
+        style={{ marginRight: '5px' }}
+        disabled={!isNetwork}
+        onClick={() => mint()}
+      >
+        Mint NFT
+      </SectionButton>
       {mintedNFT && (
         <>
           {typeof mintedNFT === 'string' ? (
