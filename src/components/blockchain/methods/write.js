@@ -1,4 +1,5 @@
 export const mintNFT = async (contract, account, uri, expire, subscridtion) => {
+  // console.log('mint');
   try {
     return await contract.methods
       .safeMint(account, uri, expire, subscridtion)
