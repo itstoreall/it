@@ -22,7 +22,18 @@ const Home = () => {
             <nav className={s.navigation}>
               <ul className={`${s.navList} ${s[links]}`}>
                 <li className={`${s.navItem}`}>
-                  <span>
+                  <span className={s.linkWrap}>
+                    {'> '}
+                    <a
+                      href={'https://healthy.storeall.com.ua'}
+                      target={'_blank'}
+                    >
+                      healthy blog
+                    </a>
+                  </span>
+                </li>
+                <li className={`${s.navItem}`}>
+                  <span className={s.linkWrap}>
                     {'> '}
                     <a href={'/next'}>next</a>
                   </span>

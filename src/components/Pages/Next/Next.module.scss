@@ -24,18 +24,22 @@ main.main {
 
         > ul.navList {
           list-style: none;
-          border-left: 3px solid $mainColor;
+          display: flex;
+          justify-content: flex-end;
+          border-right: 3px solid $mainColor;
           opacity: 0;
 
           &.links {
             opacity: 1;
 
             > li.navItem {
-              @extend %extends-animation-slide-right;
-              &.links {
-              }
+              @extend %extends-animation-slide-left;
 
-              // > a {}
+              > span.linkWrap {
+                > a {
+                  font-weight: 600;
+                }
+              }
             }
           }
 

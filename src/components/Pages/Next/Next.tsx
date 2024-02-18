@@ -22,7 +22,7 @@ const Next = () => {
             <nav className={s.navigation}>
               <ul className={`${s.navList} ${s[links]}`}>
                 <li className={`${s.navItem}`}>
-                  <span>
+                  <span className={s.linkWrap}>
                     <a href={'/'}>home</a>
                     {' <'}
                   </span>

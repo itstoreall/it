@@ -32,24 +32,18 @@ main.main {
 
             > li.navItem {
               @extend %extends-animation-slide-right;
-              &.links {
+
+              &:not(:last-child) {
+                margin-bottom: 10px;
               }
 
-              // > a {}
+              > span.linkWrap {
+                > a {
+                  font-weight: 600;
+                }
+              }
             }
           }
-
-          // > li.navItem {
-          //   // @extend %extends-transition-03s;
-          //   opacity: 0;
-
-          //   &.links {
-          //     opacity: 1;
-          //     @extend %extends-animation-slide-right;
-          //   }
-
-          //   // > a {}
-          // }
         }
       }
     }
